@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      CompanyFooAdapter.new(:user_id => @user.id).submit_request
       redirect_to @user, notice: 'User was successfully created.'
     else
       render :new

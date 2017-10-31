@@ -1,10 +1,17 @@
 require 'spec_helper'
 require 'rails_helper'
+require 'webmock/rspec'
+include WebMock::API
 
 describe UsersController, :type => :controller do
   describe 'POST #create' do
     context 'when user is successfully saved,' do
-      before(:each) { post :create, :params => {:user => attributes_for(:user)} }
+      before(:each) do 
+        stub_request(:post, ENV['COMPANY_FOO_ENDPOINT']).
+          with(:headers => {'Content-Type' => 'text/xml'}).
+            to_return(:status => 200, :body => 'OK', :headers => {})
+        post :create, :params => {:user => attributes_for(:user)}
+      end
 
       it 'creates a new user' do
         expect(User.count).to eq(1)
