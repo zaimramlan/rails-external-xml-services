@@ -24,6 +24,7 @@ group :development, :test do
   gem 'faker', '~> 1.8', '>= 1.8.4'
   gem 'webmock', '~> 3.1'
   gem 'httparty', '~> 0.15.6'
+  gem 'figaro', '~> 1.1.1'
 end
 
 group :test do
