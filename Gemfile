@@ -14,6 +14,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'httparty', '~> 0.15.6'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -23,7 +24,6 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.8'
   gem 'faker', '~> 1.8', '>= 1.8.4'
   gem 'webmock', '~> 3.1'
-  gem 'httparty', '~> 0.15.6'
   gem 'figaro', '~> 1.1.1'
 end
 
