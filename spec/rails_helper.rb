@@ -54,4 +54,35 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # Include Factory Girl syntax to simplify calls to factories
+  config.include FactoryGirl::Syntax::Methods  
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  # run DatabaseCleaner before each example group
+  # if :clean_as_group is set
+  config.before(:all) do
+    DatabaseCleaner.start if self.class.metadata[:clean_as_group]
+  end
+
+  # run DatabaseCleaner before each example group
+  # if :clean_as_group is set
+  config.after(:all) do
+    DatabaseCleaner.clean if self.class.metadata[:clean_as_group]
+  end  
+
+  # run DatabaseCleaner before each example
+  # if :clean_as_group is not set
+  config.before(:each) do
+    DatabaseCleaner.start unless self.class.metadata[:clean_as_group]
+  end
+
+  # run DatabaseCleaner before each example
+  # if :clean_as_group is not set
+  config.after(:each) do
+    DatabaseCleaner.clean unless self.class.metadata[:clean_as_group]
+  end  
 end

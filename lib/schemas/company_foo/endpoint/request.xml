@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <sampleRequest>
-  <UniqueId></UniqueId>
+  <RequestId></RequestId>
   <User>
-    <Salutation></Salutation>
-    <FullName></FullName>
+    <Title></Title>
+    <Name></Name>
     <Email></Email>
   </User>
 </sampleRequest>
