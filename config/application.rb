@@ -14,5 +14,8 @@ module ExternalXmlServices
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    
+    # eager load the helper to craft 'special' schemas by 3rd party services
+    config.eager_load_paths << Rails.root.join('lib/schemas')    
   end
 end
