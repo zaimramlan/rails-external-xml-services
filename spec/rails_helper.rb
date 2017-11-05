@@ -68,7 +68,7 @@ RSpec.configure do |config|
     DatabaseCleaner.start if self.class.metadata[:clean_as_group]
   end
 
-  # run DatabaseCleaner before each example group
+  # run DatabaseCleaner after each example group
   # if :clean_as_group is set
   config.after(:all) do
     DatabaseCleaner.clean if self.class.metadata[:clean_as_group]
@@ -80,7 +80,7 @@ RSpec.configure do |config|
     DatabaseCleaner.start unless self.class.metadata[:clean_as_group]
   end
 
-  # run DatabaseCleaner before each example
+  # run DatabaseCleaner after each example
   # if :clean_as_group is not set
   config.after(:each) do
     DatabaseCleaner.clean unless self.class.metadata[:clean_as_group]
